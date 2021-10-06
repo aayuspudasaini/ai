@@ -1,0 +1,21 @@
+from nltk.tokenize import word_tokenize,sent_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+from nltk.stem import WordNetLemmatizer
+
+example_sentence3 = "An apple a day keeps the doctor far away"
+word_token3 = word_tokenize(example_sentence3)
+word_token3
+
+pos_tagged = nltk.pos_tag(word_token3)
+
+pos_tagged
+
+#Named Entity Recognition
+named_entity_sen = "Nelson was the president of Africa"
+token1= word_tokenize(named_entity_sen)
+token1
+taggedtoken = nltk.pos_tag(token1)
+taggedtoken
+named_entity = nltk.ne_chunk(taggedtoken)
+print(named_entity)

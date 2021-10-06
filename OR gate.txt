@@ -1,0 +1,40 @@
+import numpy as np
+import numpy as np
+x = np.array([[0,0],[0,1],[1,0],[1,1]])
+x
+array([[0, 0],
+       [0, 1],
+       [1, 0],
+       [1, 1]])
+print(x)
+[[0 0]
+ [0 1]
+ [1 0]
+ [1 1]]
+y = np.array([[0],[0],[0],[1]])
+synapse0 = np.random.random((2,1))
+synapse0
+array([[0.42654307],
+       [0.79209801]])
+bias = 0.3
+lr = 0.6
+def nlinear(x,deriv=False):
+    if(deriv==True):
+        return x*(1-x)
+    return 1/(1+np.exp(-x))
+​
+for i in range(100000):
+    layer0 = x
+    layer1 = nlinear(np.dot(layer0,synapse0)+bias)
+    layer1_error = y-layer1
+    layer1_delta = layer1_error*nlinear(layer1,True)
+    synapse0 += np.dot(layer0.T,layer1_delta)
+    synapse0 = synapse0*lr
+    bias += lr*layer1_delta
+    
+print(layer1)
+[[0.00290377]
+ [0.00290378]
+ [0.00290379]
+ [0.99709637]]
+​

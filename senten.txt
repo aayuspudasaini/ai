@@ -1,0 +1,24 @@
+from nltk.tokenize import word_tokenize,sent_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+from nltk.stem import WordNetLemmatizer
+
+#Word Tokenization and Sentence Tokenization
+example_word = "I want to tokenize this sentence"
+word_token = word_tokenize(example_word)
+word_token
+example_sentence = "Hello World ! This is a tutorial on Sentence Tokenization"
+sent_token = sent_tokenize(example_sentence)
+sent_token
+#StopWord Removal
+example_sentence1 = "an apple a day keeps the doctor far way."
+stop_words = set(stopwords.words('english'))
+stop_words
+word_tokens = word_tokenize(example_sentence1)
+word_tokens
+filter_sentence= []
+for w in word_tokens:
+    if w not in stop_words:
+        filter_sentence.append(w)
+
+print(filter_sentence)
